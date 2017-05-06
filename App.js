@@ -5,7 +5,7 @@ class Greeting extends Component {
   render() {
     return (
       <Text>Hello {this.props.name}!</Text>
-    );
+    )
   }
 }
 
@@ -24,7 +24,7 @@ class Blink extends Component {
     let display = this.state.showText ? this.props.text : ' '
     return (
       <Text>{display}</Text>
-    );
+    )
   }
 }
 
@@ -77,7 +77,7 @@ export default class App extends React.Component {
         <View style={{width: 50, height: 50, backgroundColor: 'skyblue', flexDirection: 'row'}} />
         <View style={{width: 50, height: 50, backgroundColor: 'steelblue', flexDirection: 'row'}} />
       </ScrollView>
-    );
+    )
   }
 }
 
@@ -94,4 +94,34 @@ const styles = StyleSheet.create({
   red: {
     color: 'red',
   },
-});
+})
+
+
+// var request = new XMLHttpRequest();
+// request.onreadystatechange = (e) => {
+//   if (request.readyState !== 4) {
+//     return;
+//   }
+//
+//   if (request.status === 200) {
+//     console.log('success', request.responseText);
+//   } else {
+//     console.warn('error');
+//   }
+// };
+//
+// request.open('GET', 'https://facebook.github.io/react-native/movies.json');
+// request.send();
+
+async function getMoviesFromApi() {
+  try {
+    let response = await fetch('https://facebook.github.io/react-native/movies.json')
+    let responseJson = await response.json()
+    console.log('success', responseJson.movies)
+    return responseJson.movies
+  } catch(error) {
+    console.error(error)
+  }
+}
+
+getMoviesFromApi()
