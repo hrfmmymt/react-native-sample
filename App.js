@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, AppRegistry, Image, TextInput, ScrollView, ListView } from 'react-native'
+import { StyleSheet, View, AppRegistry, Image, TextInput, ScrollView, ListView } from 'react-native'
+import { Container, Header, Title, Content, Footer, FooterTab, Button, Left, Right, Body, Icon, Text } from 'native-base'
 
 class Greeting extends Component {
   render() {
@@ -46,36 +47,61 @@ export default class App extends React.Component {
     }
     return (
       <ScrollView style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-        <Text>Changes you make will automatically reload.</Text>
-        <Text>Shake your phone to open the developer menu.</Text>
-        <Image source={pic} style={{width: 193, height: 110}}/>
-        <Greeting name='Rexxar' />
-        <Greeting name='Jaina' />
-        <Greeting name='Valeera' />
-        <TextInput
-          style={{height: 40}}
-          placeholder="Type here to translate!"
-          onChangeText={(text) => this.setState({text})}
-        />
-        <Text style={{padding: 10, fontSize: 42}}>
-          {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
-        </Text>
-        <Blink text='I love to blink' />
-        <Blink text='Yes blinking is so great' />
-        <Blink text='Why did they ever take this out of HTML' />
-        <Blink text='Look at me look at me look at me' />
-        <Text style={styles.red}>just red</Text>
-        <Text style={styles.bigblue}>just bigblue</Text>
-        <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
-        <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
-        <ListView
-          dataSource={this.state.dataSource}
-          renderRow={(rowData) => <Text>{rowData}</Text>}
-        />
-        <View style={{width: 50, height: 50, backgroundColor: 'powderblue', flexDirection: 'row'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'skyblue', flexDirection: 'row'}} />
-        <View style={{width: 50, height: 50, backgroundColor: 'steelblue', flexDirection: 'row'}} />
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name='menu' />
+            </Button>
+          </Left>
+          <Body>
+            <Title>Header</Title>
+          </Body>
+          <Right />
+        </Header>
+        <Content>
+          <Text>Open up App.js to start working on your app!</Text>
+          <Text>Changes you make will automatically reload.</Text>
+          <Text>Shake your phone to open the developer menu.</Text>
+          <Button>
+            <Text>
+                Button
+            </Text>
+          </Button>
+          <Image source={pic} style={{width: 193, height: 110}}/>
+          <Greeting name='Rexxar' />
+          <Greeting name='Jaina' />
+          <Greeting name='Valeera' />
+          <TextInput
+            style={{height: 40}}
+            placeholder="Type here to translate!"
+            onChangeText={(text) => this.setState({text})}
+          />
+          <Text style={{padding: 10, fontSize: 42}}>
+            {this.state.text.split(' ').map((word) => word && '🍕').join(' ')}
+          </Text>
+          <Blink text='I love to blink' />
+          <Blink text='Yes blinking is so great' />
+          <Blink text='Why did they ever take this out of HTML' />
+          <Blink text='Look at me look at me look at me' />
+          <Text style={styles.red}>just red</Text>
+          <Text style={styles.bigblue}>just bigblue</Text>
+          <Text style={[styles.bigblue, styles.red]}>bigblue, then red</Text>
+          <Text style={[styles.red, styles.bigblue]}>red, then bigblue</Text>
+          <ListView
+            dataSource={this.state.dataSource}
+            renderRow={(rowData) => <Text>{rowData}</Text>}
+          />
+          <View style={{width: 50, height: 50, backgroundColor: 'powderblue', flexDirection: 'row'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'skyblue', flexDirection: 'row'}} />
+          <View style={{width: 50, height: 50, backgroundColor: 'steelblue', flexDirection: 'row'}} />
+        </Content>
+        <Footer>
+          <FooterTab>
+            <Button full>
+              <Text>Footer</Text>
+            </Button>
+          </FooterTab>
+        </Footer>
       </ScrollView>
     )
   }
